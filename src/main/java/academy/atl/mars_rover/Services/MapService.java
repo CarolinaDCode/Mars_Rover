@@ -5,6 +5,8 @@ import academy.atl.mars_rover.repository.IMapRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MapService {
 
@@ -13,6 +15,10 @@ public class MapService {
     @Autowired
     public MapService(IMapRepository mapRepository) {
         this.mapRepository = mapRepository;
+    }
+
+    public List<MapEntity> getAllCoord() {
+        return mapRepository.findAll();
     }
 
     public MapEntity getIdMap(Long id){
